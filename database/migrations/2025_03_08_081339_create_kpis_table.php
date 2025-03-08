@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('kpis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
+            $table->string('objective');
+            $table->string('indicator');
+            $table->string('unit');
+            $table->decimal('baseline', 8, 2);
+            $table->decimal('target', 8, 2);
+            $table->decimal('achievement', 8, 2)->default(0);
             $table->timestamps();
         });
     }

@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('evaluation_id')->constrained('performance_evaluations')->onDelete('cascade');
+            $table->text('employee_feedback')->nullable();
+            $table->text('manager_feedback')->nullable();
+            $table->text('higher_manager_feedback')->nullable();
+            $table->boolean('agrees_with_evaluation')->default(true);
             $table->timestamps();
         });
     }
