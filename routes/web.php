@@ -21,6 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('employees', EmployeeController::class);
     Route::resource('evaluations', PerformanceEvaluationController::class);
+    Route::resource('evaluations.performance-aspects', PerformanceAspectController::class);
+    Route::resource('evaluations.behavioral-aspects', BehavioralAspectController::class);
+    Route::resource('evaluations.final-score', FinalScoreController::class);
     Route::resource('projects', ProjectController::class);
     Route::resource('feedbacks', FeedbackController::class);
 });
